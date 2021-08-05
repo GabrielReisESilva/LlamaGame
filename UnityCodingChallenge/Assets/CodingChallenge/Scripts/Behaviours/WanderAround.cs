@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Simple AI behaviour. Uses an NavMeshAgent to wander around a walkable mesh in "groundLayer" layer.
 public class WanderAround : MonoBehaviour
 {
     public Vector2 wanderingRange = new Vector2(1f, 2f);
@@ -24,6 +25,7 @@ public class WanderAround : MonoBehaviour
             Debug.LogError("WANDER AROUND: Agent not found!");
         }
     }
+    //When it's ready to make a decision, finds a random position in the mesh close to the object, and goes there.
     void Update()
     {
         timer += Time.deltaTime;

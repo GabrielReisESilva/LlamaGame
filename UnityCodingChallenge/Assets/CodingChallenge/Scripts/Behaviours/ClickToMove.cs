@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
+//Move gameobject when mouse click on an objet in "groundLayer" layer
 public class ClickToMove : MonoBehaviour
 {
 	public LayerMask groundLayer;

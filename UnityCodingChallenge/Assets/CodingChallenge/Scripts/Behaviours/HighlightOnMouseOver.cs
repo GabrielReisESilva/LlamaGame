@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Highlight objects when mouse in hovers over it
 public class HighlightOnMouseOver : MonoBehaviour
 {
     public Color highlightColor;

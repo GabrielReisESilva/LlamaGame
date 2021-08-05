@@ -43,6 +43,7 @@ public class LlamaSpawner : MonoBehaviour
     }
     private void TryToSpawnWildLlama()
     {
+        //Spawn a new llama if it doesn't exceed the limit of wild llamas
         if (llamaCount < MAX_WILD_LLAMAS)
         {
             StartCoroutine(SpawnNewLlama());
@@ -51,6 +52,7 @@ public class LlamaSpawner : MonoBehaviour
     }
     private Vector3 FindPositionInNavMesh(Vector3 origin, Vector2 minBoundries, Vector2 maxBoundries, LayerMask layerMask)
     {
+        //Try to find a spot for the new llama inside a walkable navmesh
         Vector3 randomPos = origin + new Vector3(Random.Range(minBoundries.x, maxBoundries.x), 0f, Random.Range(minBoundries.y, maxBoundries.y));
 
         NavMeshHit navMeshHit;

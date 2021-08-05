@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Follows player with a smooth factor
 public class FollowPlayer : MonoBehaviour
 {
     public Transform player;

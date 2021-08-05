@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 	{
 		if (other.CompareTag("Llama"))
 		{
+			//If collides with a llama, try to capture it
 			Llama llama = other.GetComponent<Llama>();
 			if(llama == null)
             {
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
     {
 		if(llama != null)
 		{
+			//Try to feed a llama with the items in the inventory
 			Item stock = inventory.GetItem(llama.Diet);
 			if (stock != null && stock.amount > 0)
 			{

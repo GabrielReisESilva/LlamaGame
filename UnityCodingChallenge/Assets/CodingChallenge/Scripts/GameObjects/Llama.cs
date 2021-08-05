@@ -39,6 +39,7 @@ public class Llama : MonoBehaviour
     #region POOL
     public void Reborn()
     {
+        //Resets all parameters, creating a new llama from a recycled (pooled) one
         id = GetRandomName();
         health = Random.Range(50, 100);
         age = Random.Range(1, 11);
@@ -62,7 +63,7 @@ public class Llama : MonoBehaviour
             {
                 material = new Material(rend.material);
             }
-            material.SetColor("_BaseColor", GetDietColor());
+            material.SetColor("_BaseColor", Llama.GetDietColor(diet));
             rend.material = material;
         }
     }
@@ -81,6 +82,7 @@ public class Llama : MonoBehaviour
     }
     void Update()
     {
+        //Captured llamas lose 1 HP every 3 seconds
         if (isCaptured)
         {
             timer += Time.deltaTime;
@@ -110,6 +112,7 @@ public class Llama : MonoBehaviour
     }
     public bool GetFed(Item.ItemType food)
     {
+        //If given the right food, heals 20 HP, up to maxHealth
         if(health == MaxHealth)
         {
             return false;
@@ -136,7 +139,8 @@ public class Llama : MonoBehaviour
         onDeath?.Invoke(this);
         gameObject.SetActive(false);
     }
-    private Item.ItemType GetRandomDiet()
+    #region STATIC
+    private static Item.ItemType GetRandomDiet()
     {
         switch (Random.Range(0, 3))
         {
@@ -146,7 +150,7 @@ public class Llama : MonoBehaviour
             default: return Item.ItemType.GRASS;
         }
     }
-    private Color GetDietColor()
+    private static Color GetDietColor(Item.ItemType diet)
     {
         switch (diet)
         {
@@ -159,15 +163,16 @@ public class Llama : MonoBehaviour
         }
         return Color.white;
     }
-    private readonly string[] Names = new string[]
+    private static readonly string[] Names = new string[]
 {
             "Amy", "Brian", "Claire", "Dan", "Ellie", "Fox", "Gabe", "Hector", "Ivan", "Jack",
             "Kyle", "Lion", "Mike", "Nelly", "Omar", "Parker", "Qin", "Ryan", "Stu", "Trevor",
             "Uggi", "Victoria", "William", "Xavier", "Yasmin", "Zoey"
 };
 
-    private string GetRandomName()
+    private static string GetRandomName()
     {
         return Names[Random.Range(0, Names.Length)];
     }
+    #endregion
 }

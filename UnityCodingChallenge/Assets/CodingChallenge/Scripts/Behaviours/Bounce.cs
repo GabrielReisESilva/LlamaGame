@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Move gameobject up and down in a wave (cos) trajectory
 public class Bounce : MonoBehaviour
 {
     [Range(0.1f, 10.0f)]

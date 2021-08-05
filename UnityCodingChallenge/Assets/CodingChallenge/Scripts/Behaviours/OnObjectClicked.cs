@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+//Invokes "onClicked" method(s) when object is clicked
 public class OnObjectClicked : MonoBehaviour
 {
     public UnityEvent onClicked;

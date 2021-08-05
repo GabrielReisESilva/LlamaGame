@@ -25,7 +25,7 @@ public class Pen : MonoBehaviour
             Debug.LogError("PEN: Can't capture unexisting llama");
             return false;
         }
-
+        //Tries to capture a llama if has enough room in the pen. Sets listeners to the captured llama
         if (capturedLlamas.Count < MAX_CAPTURED_LLAMAS)
         {
             onLlamaCaptured?.Invoke(llama.transform.position);
@@ -38,9 +38,9 @@ public class Pen : MonoBehaviour
         else
         {
             return false;
-            //llama.gameObject.SetActive(false);
         }
     }
+    //Show modal message when llama is starving
     private void OnLlamaStarving(Llama llama)
     {
         if(alert != null)
@@ -49,6 +49,7 @@ public class Pen : MonoBehaviour
         }
     }
 
+    //Show modal message when llama is dead. Open a spot in the pen for a new llama
     private void OnLlamaDead(Llama llama)
     {
         if(capturedLlamas != null && llama != null)
